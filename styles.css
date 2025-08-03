@@ -1,0 +1,843 @@
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #1a1b3a 0%, #2d2f5f 100%);
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Layout de Páginas */
+.page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 20px auto;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    padding: 20mm;
+    display: none;
+    page-break-after: always;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Página de Capa */
+.cover-page {
+    background: linear-gradient(135deg, #1a1b3a 0%, #2d2f5f 50%, #6b46c1 100%);
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.mystical-border {
+    border: 3px solid #d4af37;
+    border-radius: 15px;
+    position: absolute;
+    top: 15mm;
+    left: 15mm;
+    right: 15mm;
+    bottom: 15mm;
+    pointer-events: none;
+}
+
+.mystical-border::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 20px;
+}
+
+.cover-title h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: #d4af37;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #f4d03f;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* Símbolo Sagrado Central */
+.cover-symbol {
+    margin: 40px 0;
+}
+
+.sacred-geometry {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.outer-circle {
+    width: 200px;
+    height: 200px;
+    border: 3px solid #d4af37;
+    border-radius: 50%;
+    position: absolute;
+    animation: rotate 20s linear infinite;
+}
+
+.hexagram {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    position: absolute;
+}
+
+.triangle.up {
+    border-bottom: 104px solid #d4af37;
+    top: -52px;
+    left: -60px;
+}
+
+.triangle.down {
+    border-top: 104px solid #d4af37;
+    top: -52px;
+    left: -60px;
+}
+
+.center-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: #d4af37;
+    z-index: 10;
+}
+
+/* Informações do Cliente */
+.client-info {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.info-field {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.info-field label {
+    display: block;
+    color: #d4af37;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.info-field input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.9);
+    font-size: 16px;
+    color: #333;
+}
+
+.info-field input:focus {
+    outline: none;
+    border-color: #f4d03f;
+    box-shadow: 0 0 10px rgba(244, 208, 63, 0.3);
+}
+
+/* Números Flutuantes */
+.floating-numbers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.float-num {
+    position: absolute;
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    color: rgba(212, 175, 55, 0.3);
+    animation: float 6s ease-in-out infinite;
+}
+
+.float-num:nth-child(2n) {
+    animation-delay: -2s;
+}
+
+.float-num:nth-child(3n) {
+    animation-delay: -4s;
+}
+
+/* Olho Místico */
+.mystical-eye {
+    margin-top: 30px;
+}
+
+.eye-symbol {
+    font-size: 36px;
+    color: #d4af37;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+/* Páginas Internas */
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 20px;
+}
+
+.header-symbol {
+    font-size: 24px;
+    color: #d4af37;
+    margin-bottom: 10px;
+}
+
+.page-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    color: #1a1b3a;
+    margin-bottom: 10px;
+}
+
+.page-number {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #d4af37;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+/* Seções de Análise */
+.analysis-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.number-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #d4af37;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.number-display {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.number-symbol {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Símbolos dos Números */
+.symbol-1 .diamond-shape {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #d4af37, #f4d03f);
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.symbol-1 .number {
+    transform: rotate(-45deg);
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+}
+
+.symbol-2 .dual-circles {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #6b46c1, #8b5cf6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.symbol-2 .dual-circles::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+}
+
+.symbol-2 .number {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    z-index: 2;
+}
+
+.triangle-symbol {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 52px solid #d4af37;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.triangle-symbol .number {
+    position: absolute;
+    top: 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.square-symbol {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #1a1b3a, #2d2f5f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.pentagon-symbol {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #d4af37, #f4d03f);
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hexagon-symbol {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #6b46c1, #8b5cf6);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.star-symbol {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #d4af37, #f4d03f);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infinity-symbol {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #1a1b3a, #2d2f5f);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infinity-symbol::before {
+    content: '∞';
+    position: absolute;
+    font-size: 30px;
+    color: #d4af37;
+}
+
+.spiral-symbol {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #6b46c1, #8b5cf6);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spiral-symbol::before {
+    content: '🌀';
+    position: absolute;
+    font-size: 24px;
+}
+
+.square-symbol .number,
+.pentagon-symbol .number,
+.hexagon-symbol .number,
+.star-symbol .number,
+.infinity-symbol .number,
+.spiral-symbol .number {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    z-index: 2;
+}
+
+.number-section h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    color: #1a1b3a;
+    margin: 0;
+}
+
+.analysis-text textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    resize: vertical;
+    background: white;
+}
+
+.analysis-text textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+/* Grid de Números */
+.numbers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.number-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid #d4af37;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-symbol {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.number-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    color: #1a1b3a;
+    margin-bottom: 15px;
+}
+
+.number-card textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 12px;
+    resize: vertical;
+}
+
+/* Ciclos de Vida */
+.cycles-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cycle-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid #d4af37;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.cycle-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.cycle-symbol {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cycle-section h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    color: #1a1b3a;
+    margin: 0;
+}
+
+.cycle-section textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    resize: vertical;
+}
+
+/* Página de Conclusão */
+.conclusion-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.synthesis-section,
+.guidance-section,
+.affirmations-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid #d4af37;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.synthesis-section h3,
+.guidance-section h3,
+.affirmations-section h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    color: #1a1b3a;
+    margin-bottom: 15px;
+}
+
+.synthesis-section textarea,
+.guidance-section textarea,
+.affirmations-section textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    resize: vertical;
+}
+
+.conclusion-footer {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.mandala-symbol {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.mandala-center {
+    width: 20px;
+    height: 20px;
+    background: #d4af37;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mandala-petals {
+    width: 80px;
+    height: 80px;
+    border: 3px solid #d4af37;
+    border-radius: 50%;
+    position: absolute;
+    animation: rotate 15s linear infinite;
+}
+
+.mandala-petals::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(212, 175, 55, 0.5);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.signature {
+    font-style: italic;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Rodapé das Páginas */
+.page-footer {
+    margin-top: 40px;
+    text-align: center;
+    border-top: 1px solid #d4af37;
+    padding-top: 20px;
+}
+
+.footer-symbols {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-symbols .symbol {
+    color: #d4af37;
+    font-size: 18px;
+}
+
+/* Controles de Navegação */
+.navigation {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(26, 27, 58, 0.9);
+    padding: 15px 30px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    backdrop-filter: blur(10px);
+    border: 2px solid #d4af37;
+    z-index: 1000;
+}
+
+.navigation button {
+    background: #d4af37;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.navigation button:hover {
+    background: #f4d03f;
+    transform: translateY(-2px);
+}
+
+.navigation button:disabled {
+    background: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#pageIndicator {
+    color: white;
+    font-weight: 600;
+    min-width: 60px;
+    text-align: center;
+}
+
+/* Controles de Impressão */
+.print-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.print-controls button {
+    background: #d4af37;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.print-controls button:hover {
+    background: #f4d03f;
+    transform: translateY(-2px);
+}
+
+/* Animações */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .page {
+        width: 95%;
+        margin: 10px auto;
+        padding: 15mm;
+    }
+    
+    .cover-title h1 {
+        font-size: 36px;
+    }
+    
+    .numbers-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .navigation {
+        bottom: 10px;
+        padding: 10px 20px;
+    }
+    
+    .print-controls {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/* Estilos de Impressão */
+@media print {
+    body {
+        background: white;
+    }
+    
+    .page {
+        box-shadow: none;
+        margin: 0;
+        page-break-after: always;
+        display: block !important;
+    }
+    
+    .navigation,
+    .print-controls {
+        display: none;
+    }
+    
+    .floating-numbers {
+        opacity: 0.3;
+    }
+}
+
+/* Estados de Foco */
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #d4af37 !important;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3) !important;
+}
+
+/* Transições Suaves */
+* {
+    transition: all 0.3s ease;
+}
+
+button {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* Scrollbar Personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f4d03f;
+}
+
